@@ -17,4 +17,4 @@ RUN ./gradlew build --no-daemon
 EXPOSE 8080
 
 # Run the application using the Gradle wrapper
-CMD ["./gradlew", "appRun"]
+CMD ["./gradlew", "appRun", "--no-daemon"]
