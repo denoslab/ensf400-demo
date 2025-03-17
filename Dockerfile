@@ -1,12 +1,14 @@
-# Building application
-FROM gradle:7.6-jdk11 AS builder
-WORKDIR /home/gradle/app
-COPY . . 
-RUN gradle build --no-daemon
+# Use an appropriate base image, e.g., for a Gradle-based project:
+    FROM openjdk:11-jdk-slim
 
-FROM openjdk:8-jre-alpine
-WORKDIR /app
-
-COPY --from=builder /home/gradle/app/build/libs/*.jar app.jar
-EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+    # Set the working directory inside the container
+    WORKDIR /app
+    
+    # Copy all files from the desktop_app folder into the container’s /app directory
+    COPY desktop_app/ /app/
+    
+    # Install Gradle (if it's not already installed in your base image)
+    RUN apt-get update && apt-get install -y gradle
+    
+    # Run the application with Gradle
+    CMD ["./gradlew", "startui"]
