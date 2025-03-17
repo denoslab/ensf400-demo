@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     curl \
     unzip
+    zip unzip
 
 # Install pipenv for managing Python dependencies
 RUN pip3 install pipenv
@@ -50,10 +51,9 @@ EXPOSE 8080
 # Command to run the application
 CMD ["./gradlew", "apprun"]
 
-RUN curl -s https://get.sdkman.io | bash \
-    && source "$HOME/.sdkman/bin/sdkman-init.sh" \
-    && sdk install gradle 7.0
-
 # Add a health check to verify that the app is running
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
   CMD curl --fail http://localhost:8080 || exit 1
+
+RUN apt-get update && apt-get install -y \
+    gradle
