@@ -66,3 +66,7 @@ ________________________________________________________________________________
 - Natnael Tekli UCID: 30171167
 - Jaden Chow UCID: 30173676
 
+## Containerization  
+- **Dockerfile**:
+  A Dockerfile is a set of instructions to automate the creation of a Docker Image. The Dockerfile helps containerize the application, ensuring it is built, tested and deployed.
+  This is done by packaging the application into a container, works with Kubernetes and enables automation in the CI/CD pipeline.
