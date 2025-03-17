@@ -1,14 +1,21 @@
 # Use OpenJDK 8 for compatibility with the build
-FROM openjdk:8-jdk-slim
+FROM openjdk:11-jdk-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy necessary files, including settings.gradle from desktop_app folder
-COPY gradlew ./
-COPY gradle /app/gradle
-COPY build.gradle /app/build.gradle
-COPY desktop_app/settings.gradle /app/settings.gradle
+COPY gradlew ./ 
+COPY gradle /app/gradle 
+COPY build.gradle /app/build.gradle 
+COPY desktop_app/settings.gradle /app/settings.gradle 
+COPY gradle.properties /app/gradle.properties
+
+# Ensure commit.html is copied from the correct path
+COPY src/main/webapp/commit.html /app/src/main/webapp/commit.html
+
+# Set the projectname property using the GRADLE_OPTS environment variable
+ENV GRADLE_OPTS="-Dprojectname=ensf400-finalproject"
 
 # Make Gradle wrapper executable
 RUN chmod +x gradlew
