@@ -1,5 +1,5 @@
 # Building application
-FROM gradle:7.6-jdk8 AS builder
+FROM gradle:7.6-jdk11 AS builder
 WORKDIR /home/gradle/app
 COPY . . 
 RUN gradle build --no-daemon
