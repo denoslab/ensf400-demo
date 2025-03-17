@@ -1,4 +1,4 @@
-//this is a docker gradle file
+//this is a docker file
 FROM gradle:7-jdk11
 
 WORKDIR /app
