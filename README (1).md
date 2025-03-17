@@ -66,13 +66,3 @@ ________________________________________________________________________________
 - Natnael Tekli UCID: 30171167
 - Jaden Chow UCID: 30173676
 
-## Project Description  
-The main objective in this project is to create software that incorporates/extends a complete CI/CD 
-(Continuous Integration/Continuous Deployment) pipeline. 
-
-## Git Workflow  
-- **Branching Strategy**: 
-We will use a Feature Branching Strategy, where each new feature or bug fix is developed in its own branch. 
-- The main branch will be called ‘main'
-- Development branches will follow the naming convention ‘feature/[feature-name]’ for features
-- Finally ‘bugfix/[bug-name]’ for bug fixes.  
