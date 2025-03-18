@@ -7,6 +7,7 @@ COPY . /app
 
 RUN chmod +x gradlew
 
+EXPOSE 8080 
 # Install any dependencies (if necessary, e.g., for Gradle or Java)
 RUN apt-get update 
 CMD ["./gradlew", "apprun"]
