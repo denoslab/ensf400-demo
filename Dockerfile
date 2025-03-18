@@ -1,14 +1,12 @@
-# Use an appropriate base image, e.g., for a Gradle-based project:
-    FROM openjdk:11-jdk-slim
+# Use a base image with Java pre-installed, e.g., OpenJDK
+FROM openjdk:11-jdk-slim
 
-    # Set the working directory inside the container
-    WORKDIR /app
-    
-    # Copy all files from the desktop_app folder into the container’s /app directory
-    COPY desktop_app/ /app/
-    
-    # Install Gradle (if it's not already installed in your base image)
-    RUN apt-get update && apt-get install -y gradle
-    
-    # Run the application with Gradle
-    CMD ["./gradlew", "startui"]
+WORKDIR /app
+
+COPY . /app
+
+RUN chmod +x gradlew
+
+# Install any dependencies (if necessary, e.g., for Gradle or Java)
+RUN apt-get update 
+CMD ["./gradlew", "apprun"]
