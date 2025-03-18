@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  demo-app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./build/reports:/app/build/reports
+    environment:
+      - JAVA_OPTS=-Xmx512m
+    restart: unless-stopped
+
+  # Optional: Add a database service if needed in the future
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_USER: demo
+  #     POSTGRES_DB: demo
+  #   volumes:
+  #     - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
